@@ -31,4 +31,4 @@ curl 'https://historianapp.appspot.com/boilerpipe'  --data $'extractor=canola&ec
  
  
  
- 
+ ### License: [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) 
