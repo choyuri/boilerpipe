@@ -13,13 +13,14 @@
    1. contenttype : 'url' or 'html'  
    2. content: url of web page with protocol or html text
    3. extractor: one of 'default', 'article','sentence','largest','canola'
+   4. echohtmlcontent: 'true' or 'false'
    
 * output format: JSON
 
 ### Examples
 
 ```
-curl https://historianapp.appspot.com/boilerpipe  --data "extractor=canola&contenttype=url&content=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FEnglish_language"
+curl https://historianapp.appspot.com/boilerpipe  --data "extractor=canola&echohtmlcontent=false&contenttype=url&content=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FEnglish_language"
 
 
 
