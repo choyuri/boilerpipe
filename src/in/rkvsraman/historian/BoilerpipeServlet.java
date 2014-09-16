@@ -38,6 +38,7 @@ public class BoilerpipeServlet extends HttpServlet {
 		String htmlMessage = req.getParameter("content");
 		String extractorType = req.getParameter("extractor");
 		String contentType = req.getParameter("contenttype");
+		String echoOriginalContent = req.getParameter("echohtmlcontent");
 
 		resp.setContentType("application/json; charset=utf-8");
 		resp.setCharacterEncoding("UTF-8");
@@ -53,7 +54,9 @@ public class BoilerpipeServlet extends HttpServlet {
 		}
 		if (htmlMessage != null) {
 			try {
-				responseObject.put("content", htmlMessage);
+				if (echoOriginalContent != null
+						&& echoOriginalContent.equals("true"))
+					responseObject.put("content", htmlMessage);
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -74,7 +77,9 @@ public class BoilerpipeServlet extends HttpServlet {
 					sb.append(line + "\n");
 				}
 				htmlMessage = sb.toString();
-				responseObject.put("urlcontent", htmlMessage);
+				if (echoOriginalContent != null
+						&& echoOriginalContent.equals("true"))
+					responseObject.put("urlcontent", htmlMessage);
 				reader.close();
 
 			} catch (UnsupportedEncodingException e) {
@@ -146,7 +151,9 @@ public class BoilerpipeServlet extends HttpServlet {
 		} else {
 			try {
 				responseObject.put("code", "403");
-				responseObject.put("originalContent", htmlMessage);
+				if (echoOriginalContent != null
+						&& echoOriginalContent.equals("true"))
+					responseObject.put("originalContent", htmlMessage);
 				responseObject.put("contentlength", htmlMessage.length());
 				responseObject.put("message", "no content or content too long");
 			} catch (JSONException e1) {
