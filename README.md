@@ -14,6 +14,7 @@
    2. content: url of web page with protocol or html text
    3. extractor: one of 'default', 'article','sentence','largest','canola'
    
+* output format: JSON
 
 ### Examples
 
